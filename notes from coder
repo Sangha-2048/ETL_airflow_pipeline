@@ -1,0 +1,41 @@
+Using Python 3.6.9
+
+Install python virtual env
+sudo apt-get install python3-venv
+
+Create and activate a virtual env for development
+python3 -m venv venv
+source venv/bin/activate
+
+
+Install apache airflow and resolve dependency errors
+pip3 install apache-airflow
+pip3 install setuptools_rust
+pip3 install apache-airflow
+pip install --upgrade pip
+pip3 install Rust==1.41.0
+pip3 install typing_extensions
+pip3 install apache-airflow
+
+submit the dag to airflow
+
+cp ./ETL_toll.py airflow/dags/
+
+airflow commands:
+airflow db init
+airflow webserver
+airflow scheduler
+
+To stop airflow
+killall -9 airflow
+kill -9 pid
+
+Resolve some airflow errors
+TemplateNotFound error when running simple Airflow BashOperator
+-  Add a space at the end of your bash_command and it should run fine
+
+Permission denied error
+chmod +x all the shell scripts that you are running
+
+
+
