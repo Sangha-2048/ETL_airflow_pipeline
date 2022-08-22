@@ -37,5 +37,25 @@ TemplateNotFound error when running simple Airflow BashOperator
 Permission denied error
 chmod +x all the shell scripts that you are running
 
+For Kafka project
+
+Kafka Commands:
+./Downloads/installs/kafka_2.12-3.0.0/bin/kafka-topics.sh
+./Downloads/installs/kafka_2.12-3.0.0/bin/zookeeper-server-start.sh  ./Downloads/installs/kafka_2.12-3.0.0/config/zookeeper.properties
+./Downloads/installs/kafka_2.12-3.0.0/bin/kafka-server-start.sh ./Downloads/installs/kafka_2.12-3.0.0/config/server.properties
+
+To get list of topics
+./Downloads/installs/kafka_2.12-3.0.0/bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+To see the consumers
+./Downloads/installs/kafka_2.12-3.0.0/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic sampleTopic --from-beginning --max-messages 100
+
+To create topics
+./Downloads/installs/kafka_2.12-3.0.0/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 10 --topic sampleTopic
+
+Submit a record to kafka:
+ ./Downloads/installs/kafka_2.12-3.0.0/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic sampleTopic < /home/test/Downloads/data/tracker.log
+ 
+ Used mysql version = 8.0.28
+ 
 
 
